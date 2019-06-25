@@ -1,7 +1,45 @@
-var arreglo123 = [];
+function ingresarElementos(arreglo, n){
+    for(var i = 0; i < n; i++){
+        var datos = parseInt(prompt("INGRESAR LOS ELEMENTOS"));
+        arreglo[i] = datos;
+    }
+}
 
-function menuPrincipal(){
+
+function mostrarElementos(arreglo, n){
+    for(var i = 0; i < n; i++){
+        console.log(arreglo[i]);
+        
+    }
+    prompt(arreglo);
+}
+
+function algoritmoSeleccion(arreglo, n){
+    for(var i = 0; i < n; i++){
+        for(var j = i+1; j < n; j++){
+            if(arreglo[j] < arreglo[i]){
+                var aux = arreglo[j];
+                arreglo[j] = arreglo[i];
+                arreglo[i] = aux;
+            }
+        }
+    }
+}
+
+function mayorMenor(arreglo, n){
+   algoritmoSeleccion(arreglo, n);
+   console.log("EL MAYOR ELEMENTO ES: ");
+   var mayor = arreglo[n-1];
+   console.log(mayor);
+   console.log("EL MENOR ELEMENTO ES: ");
+   var menor = arreglo[0];
+   console.log(menor);
+}
+
+
+function menuPrincipal(arreglo){
         do{
+
             var menu=parseInt(prompt(
             `INGRESE LA OPCION REQUERIDA:
              1.- PARA INGRESAR LOS ELEMENTOS
@@ -39,42 +77,7 @@ function menuPrincipal(){
             }
         }while(menu != 5)
  }
- menuPrincipal();
 
- function ingresarElementos(arreglo, n){
-     for(var i = 0; i < n; i++){
-         var datos = parseInt(prompt("INGRESAR LOS ELEMENTOS"));
-         arreglo[i] = datos;
-     }
- }
- ingresarElementos();
+ var arreglo123 = [];
 
- function mostrarElementos(arreglo, n){
-     for(var i = 0; i < n; i++){
-         console.log(arreglo[i]);
-     }
- }
- mostrarElementos();
-
- function algoritmoSeleccion(arreglo, n){
-     for(var i = 0; i < n; i++){
-         for(var j = i+1; j < n; j++){
-             if(arreglo[j] < arreglo[i]){
-                 var aux = arreglo[j];
-                 arreglo[j] = arreglo[i];
-                 arreglo[i] = aux;
-             }
-         }
-     }
- }
- algoritmoSeleccion();
-
-function mayorMenor(arreglo, n){
-    algoritmoSeleccion(arreglo, n);
-    console.log("EL MAYOR ELEMENTO ES: ");
-    var mayor = arreglo[n-1];
-    console.log(mayor);
-    console.log("EL MENOR ELEMENTO ES: ");
-    var menor = arreglo[0];
-    console.log(menor);
-}
+menuPrincipal(arreglo123);
